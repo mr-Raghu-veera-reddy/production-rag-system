@@ -1,6 +1,6 @@
 # Production RAG System
 
-A production-grade Retrieval Augmented Generation (RAG) system.
+A production-grade Retrieval Augmented Generation (RAG) system with embeddings and vector storage.
 
 ## Progress
 
@@ -11,16 +11,36 @@ A production-grade Retrieval Augmented Generation (RAG) system.
 - [x] Text chunking with overlap
 - [x] Basic testing
 
-### 🔄 Day 2 - Embeddings & Vector Store
-- [ ] Embedding generation
-- [ ] ChromaDB setup
-- [ ] Document ingestion pipeline
+### ✅ Day 2 - Embeddings & Vector Store
+- [x] Embedding generation (OpenAI text-embedding-3-small)
+- [x] ChromaDB vector store setup
+- [x] Complete ingestion pipeline
+- [x] Semantic search working
+- [x] Data persistence verified
+
+### 🔄 Day 3 - Retrieval & Question Answering
+- [ ] Build retriever module
+- [ ] Build QA generator
+- [ ] Complete RAG system
+- [ ] Basic UI
 
 ## Current Status
 
-Can load PDFs and split them into chunks ready for embedding.
+✅ **Full ingestion pipeline working!**
+- Can load PDFs
+- Split into chunks
+- Generate embeddings
+- Store in vector database
+- Search by semantic similarity
 
-## Setup
+**Stats from latest ingestion:**
+- Documents: 3 PDFs
+- Chunks: 51
+- Embeddings: 1536 dimensions each
+- Cost: ~$0.08
+- Time: ~2 minutes
+
+## Quick Start
 ```bash
 # Install dependencies
 pip install -r requirements.txt
@@ -28,14 +48,39 @@ pip install -r requirements.txt
 # Set up API key
 echo "OPENAI_API_KEY=your-key" > .env
 
-# Test
-python src/test_pipeline.py
+# Ingest documents
+python src/ingestion_pipeline.py
+
+# Test retrieval
+python src/test_retrieval.py
 ```
 
-## Structure
+## Architecture
+```
+PDF Documents
+    ↓
+Document Loader (PyPDF2)
+    ↓
+Text Chunker (500 words, 50 overlap)
+    ↓
+Embedding Generator (OpenAI API)
+    ↓
+Vector Store (ChromaDB)
+    ↓
+Semantic Search
+```
+
+## Project Structure
 ```
 src/
-├── document_loader.py  # Load PDFs
-├── text_chunker.py     # Split into chunks
-└── test_*.py           # Test files
+├── document_loader.py      # PDF loading
+├── text_chunker.py         # Document chunking
+├── embeddings.py           # Embedding generation
+├── vector_store.py         # ChromaDB interface
+└── ingestion_pipeline.py   # Complete pipeline
+
+tests/
+└── test_day2.py           # Day 2 test suite
+
+chroma_db/                 # Persistent vector database
 ```
