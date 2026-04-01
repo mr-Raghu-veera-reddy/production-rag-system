@@ -82,6 +82,13 @@ with st.sidebar:
     # Settings
     st.header("⚙️ Settings")
     
+        # Advanced mode toggle
+    use_advanced = st.checkbox(
+        "🚀 Advanced Mode",
+        value=False,
+        help="Enable query rewriting and re-ranking (slower but better results)"
+    )
+    
     model_choice = st.selectbox(
         "Model",
         ["gpt-3.5-turbo", "gpt-4"],
@@ -110,14 +117,24 @@ with st.sidebar:
         st.session_state.rag_system = RAGSystem(
             model=model_choice,
             top_k=top_k,
-            temperature=temperature
+            temperature=temperature,
+            use_advanced_retrieval=use_advanced
+            
         )
         st.success("Settings applied!")
     
     st.markdown("---")
     
+     # Show current mode
+    if 'rag_system' in st.session_state:
+        mode = "Advanced" if use_advanced else "Basic"
+        st.info(f"**Current Mode:** {mode}")
+    
     # Statistics
     st.header("📊 Statistics")
+    
+    if st.button("📈 Show Stats"):
+     st.session_state.rag_system.show_stats()
     
     st.metric("Total Queries", len(st.session_state.chat_history))
     st.metric("Total Cost", f"${st.session_state.total_cost:.4f}")

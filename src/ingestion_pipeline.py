@@ -3,11 +3,7 @@ Complete Document Ingestion Pipeline
 PDF → Chunks → Embeddings → Vector Store
 """
 
-# from document_loader import DocumentLoader
-# from text_chunker import TextChunker
-# from embeddings import EmbeddingGenerator
-# from vector_store import VectorStore
-# ✅ Fixed - works correctly as part of the src package
+from .text_cleaner import TextCleaner
 from .document_loader import DocumentLoader
 from .text_chunker import TextChunker
 from .embeddings import EmbeddingGenerator
@@ -40,6 +36,7 @@ class IngestionPipeline:
         
         self.loader = DocumentLoader()
         self.chunker = TextChunker(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+        self.cleaner = TextCleaner()  # Text cleaner initialized here
         self.embedder = EmbeddingGenerator(model=embedding_model)
         self.vector_store = VectorStore()
         
@@ -87,7 +84,15 @@ class IngestionPipeline:
         
         chunks = self.chunker.chunk_documents(documents)
         
-        print(f"✅ Created {len(chunks)} chunks")
+        # --- NEW STEP 2.5: Clean chunks ---
+        print("\n" + "─" * 70)
+        print("🧹 STEP 2.5/4: Cleaning Text")
+        print("─" * 70)
+        
+        chunks = self.cleaner.clean_chunks(chunks)
+        # ----------------------------------
+        
+        print(f"✅ Created and cleaned {len(chunks)} chunks")
         
         # Step 3: Generate embeddings
         print("\n" + "─" * 70)

@@ -5,6 +5,7 @@ Combines retrieval and generation into one system
 
 from .retriever import Retriever
 from .qa_generator import QAGenerator
+from .monitoring import Monitor
 from typing import Dict
 import time
 
@@ -17,7 +18,8 @@ class RAGSystem:
         self,
         model: str = "gpt-3.5-turbo",
         top_k: int = 5,
-        temperature: float = 0.3
+        temperature: float = 0.3,
+        use_advanced_retrieval: bool = False
     ):
         """
         Initialize RAG system
@@ -26,15 +28,31 @@ class RAGSystem:
             model: OpenAI model for generation
             top_k: Number of chunks to retrieve
             temperature: Generation temperature
+            use_advanced_retrieval: Use query rewriting + re-ranking
         """
         
         print("=" * 80)
         print("🚀 INITIALIZING RAG SYSTEM")
         print("=" * 80)
         
-        self.retriever = Retriever(top_k=top_k)
+        # Choose retriever based on mode
+        if use_advanced_retrieval:
+            from advanced_retriever import AdvancedRetriever
+            self.retriever = AdvancedRetriever(
+                use_query_rewriting=True,
+                use_reranking=True,
+                top_k=top_k
+            )
+            print("✅ Using ADVANCED retrieval (query rewriting + re-ranking)")
+        else:
+            self.retriever = Retriever(top_k=top_k)
+            print("✅ Using BASIC retrieval")
+        
         self.generator = QAGenerator(model=model, temperature=temperature)
         self.top_k = top_k
+        
+        # Add monitoring
+        self.monitor = Monitor()
         
         print("\n✅ RAG System ready!")
         print("=" * 80)
@@ -84,6 +102,9 @@ class RAGSystem:
         # Add retrieved chunks for reference
         result['retrieved_chunks'] = chunks
         
+        # Log query with monitoring
+        self.monitor.log_query(question, result['answer'], result)
+        
         return result
     
     def print_result(self, result: Dict, show_chunks: bool = False):
@@ -124,6 +145,15 @@ class RAGSystem:
                 print(f"{chunk['text'][:200]}...")
                 print("-" * 80)
     
+    def show_stats(self, last_n: int = None):
+        """
+        Show system statistics
+        
+        Args:
+            last_n: Show stats for last N queries only
+        """
+        self.monitor.print_stats(last_n)
+    
     def interactive_mode(self):
         """
         Run RAG system in interactive question-answering mode
@@ -134,6 +164,7 @@ class RAGSystem:
         print("=" * 80)
         print("Ask questions about your documents!")
         print("Type 'quit' or 'exit' to stop")
+        print("Type 'stats' to see statistics")
         print("=" * 80)
         
         while True:
@@ -143,7 +174,14 @@ class RAGSystem:
             # Check for exit
             if question.lower() in ['quit', 'exit', 'q']:
                 print("\n👋 Goodbye!")
+                # Show final stats
+                self.show_stats()
                 break
+            
+            # Check for stats command
+            if question.lower() == 'stats':
+                self.show_stats()
+                continue
             
             # Skip empty questions
             if not question:
@@ -161,35 +199,43 @@ if __name__ == "__main__":
     print("\n🧪 TESTING COMPLETE RAG SYSTEM")
     print("=" * 80)
     
-    # Create RAG system
-    rag = RAGSystem(
-        model="gpt-3.5-turbo",
-        top_k=5,
-        temperature=0.3
-    )
-    
-    # Test queries
-    test_queries = [
-        "What is machine learning and how does it work?",
-        "Explain the difference between supervised and unsupervised learning",
-        "What are neural networks?",
-        "What are some applications of deep learning?"
-    ]
-    
+    # Test 1: Basic mode
     print("\n" + "=" * 80)
-    print("🧪 RUNNING TEST QUERIES")
+    print("TEST 1: Basic Mode")
     print("=" * 80)
     
-    for i, query in enumerate(test_queries, 1):
-        print(f"\n\n{'#' * 80}")
-        print(f"# TEST {i}/{len(test_queries)}")
-        print('#' * 80)
-        
-        result = rag.query(query)
-        rag.print_result(result, show_chunks=False)
+    rag_basic = RAGSystem(
+        model="gpt-3.5-turbo",
+        top_k=5,
+        temperature=0.3,
+        use_advanced_retrieval=False
+    )
     
-    print("\n\n" + "=" * 80)
-    print("✅ RAG SYSTEM TEST PASSED!")
+    result1 = rag_basic.query("What is machine learning?")
+    rag_basic.print_result(result1)
+    
+    # Test 2: Advanced mode
+    print("\n" + "=" * 80)
+    print("TEST 2: Advanced Mode")
+    print("=" * 80)
+    
+    rag_advanced = RAGSystem(
+        model="gpt-3.5-turbo",
+        top_k=5,
+        temperature=0.3,
+        use_advanced_retrieval=True
+    )
+    
+    result2 = rag_advanced.query("What is ML?")  # Short query to test rewriting
+    rag_advanced.print_result(result2)
+    
+    # Show monitoring stats
+    print("\n" + "=" * 80)
+    print("MONITORING STATISTICS")
+    print("=" * 80)
+    rag_advanced.show_stats()
+    
+    print("\n✅ RAG SYSTEM TEST PASSED!")
     print("=" * 80)
     
     # Offer interactive mode
@@ -197,4 +243,11 @@ if __name__ == "__main__":
     choice = input("> ").strip().lower()
     
     if choice == 'y':
-        rag.interactive_mode()
+        # Use basic mode for interactive (faster)
+        rag_interactive = RAGSystem(
+            model="gpt-3.5-turbo",
+            top_k=5,
+            temperature=0.3,
+            use_advanced_retrieval=False
+        )
+        rag_interactive.interactive_mode()
