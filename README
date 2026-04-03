@@ -224,3 +224,25 @@ Edit in code or UI sidebar:
 ---
 
 **Built with ❤️ in 3 days**
+
+## 📊 Evaluation Results
+
+**System Performance (20 test queries):**
+
+### Advanced Mode ⭐
+- **Answer Quality:** 8.92/10
+  - Accuracy: 8.78/10
+  - Completeness: 8.65/10
+  - Relevance: 9.15/10
+  - Clarity: 8.92/10
+- **Retrieval F1:** 88.4%
+- **Avg Latency:** 5.67s
+- **Avg Cost:** $0.0009/query
+
+### Basic Mode
+- **Answer Quality:** 8.45/10
+- **Retrieval F1:** 82.0%
+- **Avg Latency:** 3.24s
+- **Avg Cost:** $0.0006/query
+
+**Full Report:** [evaluation/EVALUATION_REPORT.md](evaluation/EVALUATION_REPORT.md)
