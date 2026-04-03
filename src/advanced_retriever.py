@@ -3,10 +3,10 @@ Advanced Retriever Module
 Combines query rewriting and re-ranking for better retrieval
 """
 
-from .embeddings import EmbeddingGenerator
-from .vector_store import VectorStore
-from .query_rewriter import QueryRewriter
-from .reranker import Reranker
+from embeddings import EmbeddingGenerator
+from vector_store import VectorStore
+from query_rewriter import QueryRewriter
+from reranker import Reranker
 from typing import List, Dict
 
 class AdvancedRetriever:

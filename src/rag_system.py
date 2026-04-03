@@ -3,9 +3,15 @@ Complete RAG System
 Combines retrieval and generation into one system
 """
 
-from .retriever import Retriever
-from .qa_generator import QAGenerator
-from .monitoring import Monitor
+# from retriever import Retriever
+# from qa_generator import QAGenerator
+# # from monitoring import Monitor
+# from rag_monitor import Monitor
+# from typing import Dict
+# import time
+from src.retriever import Retriever
+from src.qa_generator import QAGenerator
+from src.rag_monitor import Monitor
 from typing import Dict
 import time
 

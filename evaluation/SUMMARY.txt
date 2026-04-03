@@ -1,0 +1,11 @@
+
+RAG SYSTEM EVALUATION SUMMARY
+============================================================
+
+Answer Quality:     9.97/10 (Advanced) | 9.94/10 (Basic)
+Retrieval F1:       0.0% (Advanced) | 0.0% (Basic)
+Avg Latency:        23.91s (Advanced) | 2.70s (Basic)
+Avg Cost:           $0.0054 (Advanced) | $0.0054 (Basic)
+
+Recommendation: Advanced mode for production
+============================================================

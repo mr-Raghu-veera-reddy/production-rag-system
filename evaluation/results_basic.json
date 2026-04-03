@@ -1,0 +1,650 @@
+[
+  {
+    "test_id": 1,
+    "question": "What is machine learning?",
+    "category": "definition",
+    "difficulty": "easy",
+    "generated_answer": "Machine Learning is the science (and art) of programming computers so they can learn from data. It is the field of study that gives computers the ability to learn without being explicitly programmed. This definition was provided by Arthur Samuel in 1959 and further elaborated by Tom Mitchell in 1997. Machine Learning involves training computer programs to improve their performance on a specific task based on experience, data, and performance measures. It is used in various applications, such as spam filters, image recognition, and recommendation systems. (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "Machine learning is a subset of artificial intelligence that enables computers to learn from data without being explicitly programmed.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 4.83065128326416,
+    "tokens_used": 3396,
+    "cost": 0.0050940000000000004,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf"
+    ]
+  },
+  {
+    "test_id": 2,
+    "question": "Explain the difference between supervised and unsupervised learning",
+    "category": "comparison",
+    "difficulty": "medium",
+    "generated_answer": "In supervised learning, the training data includes desired solutions or labels, and the system learns to classify new instances or predict numeric values based on this labeled data. On the other hand, in unsupervised learning, the training data is unlabeled, and the system tries to learn patterns or structures without explicit guidance from labeled examples (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf).",
+    "expected_answer": "Supervised learning uses labeled data to train models for predictions, while unsupervised learning finds patterns in unlabeled data without predefined categories.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 2,
+      "correct_count": 0
+    },
+    "latency": 3.191659688949585,
+    "tokens_used": 3531,
+    "cost": 0.0052965,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf",
+      "pdf2.pdf"
+    ]
+  },
+  {
+    "test_id": 3,
+    "question": "What are neural networks?",
+    "category": "definition",
+    "difficulty": "easy",
+    "generated_answer": "According to the document \"Hands On Machine Learning with Scikit Learn and TensorFlow.pdf,\" neural networks are artificial neural network architectures inspired by biological neurons. They were first introduced in 1943 and have evolved over time with different network architectures and training techniques. Neural networks are versatile, powerful, and scalable, making them ideal for tackling large and complex Machine Learning tasks. They have experienced waves of interest and development, with the current wave being driven by the availability of large datasets, increased computing power, improved training algorithms, and successful applications leading to more attention and funding.",
+    "expected_answer": "Neural networks are computational models inspired by biological neural networks in the brain, consisting of interconnected nodes that process information.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 2.40535569190979,
+    "tokens_used": 3602,
+    "cost": 0.005403000000000001,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf3.pdf"
+    ]
+  },
+  {
+    "test_id": 4,
+    "question": "How does deep learning work?",
+    "category": "explanation",
+    "difficulty": "medium",
+    "generated_answer": "According to the provided context from \"Hands On Machine Learning with Scikit Learn and TensorFlow.pdf,\" deep learning involves training deep neural networks with many layers to tackle complex problems by learning hierarchical representations of data. The process includes addressing challenges like vanishing gradients, optimizing training with various techniques such as backpropagation, and utilizing tools like unsupervised pretraining, transfer learning, and skip connections to improve training efficiency and model performance.",
+    "expected_answer": "Deep learning uses neural networks with multiple layers to process complex patterns, learning hierarchical representations from data.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 2,
+      "correct_count": 0
+    },
+    "latency": 2.274660110473633,
+    "tokens_used": 3464,
+    "cost": 0.005196,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf2.pdf",
+      "pdf3.pdf"
+    ]
+  },
+  {
+    "test_id": 5,
+    "question": "What is the difference between classification and regression?",
+    "category": "comparison",
+    "difficulty": "medium",
+    "generated_answer": "In supervised learning, classification involves predicting a class label (e.g., spam or ham), while regression involves predicting a target numeric value (e.g., price of a car) based on a set of features (e.g., mileage, age, brand). Classification is used when the output is a category, while regression is used when the output is a continuous value (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf).",
+    "expected_answer": "Classification predicts discrete categories or classes, while regression predicts continuous numerical values.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 2.4866058826446533,
+    "tokens_used": 3800,
+    "cost": 0.0057,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf"
+    ]
+  },
+  {
+    "test_id": 6,
+    "question": "What is overfitting in machine learning?",
+    "category": "definition",
+    "difficulty": "medium",
+    "generated_answer": "Overfitting in machine learning occurs when a model performs well on the training data but does not generalize well to new instances. This can happen when the model is too complex relative to the amount and noisiness of the training data, leading to the model detecting patterns in the noise itself rather than real patterns. Overfitting can be addressed by simplifying the model, gathering more training data, or reducing noise in the training data through techniques like regularization (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf).",
+    "expected_answer": "Overfitting occurs when a model learns the training data too well, including noise, and performs poorly on new unseen data.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 2,
+      "correct_count": 0
+    },
+    "latency": 2.4508464336395264,
+    "tokens_used": 3338,
+    "cost": 0.005006999999999999,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf",
+      "pdf2.pdf"
+    ]
+  },
+  {
+    "test_id": 7,
+    "question": "What are the main types of machine learning?",
+    "category": "enumeration",
+    "difficulty": "easy",
+    "generated_answer": "According to \"Hands On Machine Learning with Scikit Learn and TensorFlow.pdf,\" the main types of machine learning systems are supervised learning, unsupervised learning, semisupervised learning, and Reinforcement Learning. Supervised learning involves training data with desired solutions, unsupervised learning uses unlabeled training data, semisupervised learning is a combination of both, and Reinforcement Learning involves learning the best strategy to maximize rewards over time.",
+    "expected_answer": "The main types are supervised learning, unsupervised learning, and reinforcement learning.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 2.197195529937744,
+    "tokens_used": 3479,
+    "cost": 0.0052185,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf"
+    ]
+  },
+  {
+    "test_id": 8,
+    "question": "What is a convolutional neural network?",
+    "category": "definition",
+    "difficulty": "medium",
+    "generated_answer": "A convolutional neural network (CNN) is a type of neural network architecture that applies multiple filters to its inputs simultaneously, allowing it to detect multiple features anywhere in the inputs. Neurons in a CNN share the same parameters within a feature map, reducing the number of parameters in the model and enabling the network to recognize patterns in different locations. CNNs are particularly effective for image recognition tasks due to their hierarchical structure that focuses on low-level features in the initial layers and assembles them into higher-level features in subsequent layers. The architecture of a CNN includes convolutional layers, pooling layers, and skip connections for training deep networks efficiently. (Source: Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "A convolutional neural network (CNN) is a deep learning architecture designed for processing grid-like data such as images, using convolutional layers to detect features.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 2.462606191635132,
+    "tokens_used": 3617,
+    "cost": 0.005425500000000001,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf3.pdf"
+    ]
+  },
+  {
+    "test_id": 9,
+    "question": "What is the purpose of activation functions?",
+    "category": "explanation",
+    "difficulty": "medium",
+    "generated_answer": "Activation functions are essential components in artificial neural networks as they introduce non-linearity to the network, allowing it to learn complex patterns and relationships in the data. They help in determining the output of a neural network, enabling it to make predictions by transforming the input signal into an output signal. Different activation functions like ReLU, Leaky ReLU, ELU, sigmoid, tanh, and softmax serve various purposes in improving the performance and training of neural networks by addressing issues like vanishing/exploding gradients and ensuring signal flow in both forward and backward directions during training. (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "Activation functions introduce non-linearity into neural networks, allowing them to learn complex patterns and relationships in data.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 2.685482978820801,
+    "tokens_used": 3650,
+    "cost": 0.005475000000000001,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf3.pdf"
+    ]
+  },
+  {
+    "test_id": 10,
+    "question": "What is gradient descent?",
+    "category": "definition",
+    "difficulty": "hard",
+    "generated_answer": "Gradient Descent is a generic optimization algorithm used to minimize a cost function by iteratively adjusting parameters in the direction of the steepest slope of the error function. It involves calculating gradients to determine the direction of descent and updating parameters gradually to reach a minimum. The algorithm's progress is determined by the learning rate hyperparameter, which controls the size of the steps taken in parameter space. There are different variations of Gradient Descent, including Batch Gradient Descent, Stochastic Gradient Descent, and Mini-batch Gradient Descent, each with its own characteristics and advantages. (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "Gradient descent is an optimization algorithm that iteratively adjusts model parameters to minimize the loss function by moving in the direction of steepest descent.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 2.4047436714172363,
+    "tokens_used": 3568,
+    "cost": 0.005352,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf2.pdf"
+    ]
+  },
+  {
+    "test_id": 11,
+    "question": "What is reinforcement learning?",
+    "category": "definition",
+    "difficulty": "easy",
+    "generated_answer": "Reinforcement Learning is a field of Machine Learning where a software agent learns to take actions within an environment to maximize rewards over time. The agent receives rewards based on its actions and observations, learning through trial and error to achieve its objectives. It differs from supervised and unsupervised learning by requiring the agent to explore and exploit sources of rewards without explicit guidance on how to perform tasks (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf).",
+    "expected_answer": "Reinforcement learning is a type of machine learning where an agent learns to make decisions by interacting with an environment and receiving rewards or penalties.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 3.158076763153076,
+    "tokens_used": 3517,
+    "cost": 0.0052755,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf"
+    ]
+  },
+  {
+    "test_id": 12,
+    "question": "What is the purpose of training and validation sets?",
+    "category": "explanation",
+    "difficulty": "medium",
+    "generated_answer": "The purpose of training and validation sets is to evaluate machine learning models. The training set is used to train the model, while the validation set is used to compare models, select the best model, and tune hyperparameters. The validation set helps in preventing overfitting and ensures that the model generalizes well to new data. The generalization error of a model can be estimated by evaluating it on the validation set. (Source: Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "Training sets are used to train the model, while validation sets are used to tune hyperparameters and evaluate performance during training without overfitting.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 2,
+      "correct_count": 0
+    },
+    "latency": 2.3362553119659424,
+    "tokens_used": 3590,
+    "cost": 0.005385,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf",
+      "pdf2.pdf"
+    ]
+  },
+  {
+    "test_id": 13,
+    "question": "What is backpropagation?",
+    "category": "definition",
+    "difficulty": "hard",
+    "generated_answer": "Backpropagation is a technique used to train artificial neural networks by computing the gradients of the cost function with respect to each model parameter and then updating the parameters using Gradient Descent steps. It involves propagating the error gradient from the output layer to the input layer and adjusting the connection weights based on these gradients. The process includes a forward pass to make predictions, a reverse pass to measure error contributions from each connection, and a Gradient Descent step to reduce error (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf).",
+    "expected_answer": "Backpropagation is an algorithm for training neural networks that calculates gradients by propagating errors backward through the network layers.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 3.098601818084717,
+    "tokens_used": 3564,
+    "cost": 0.005346,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf3.pdf"
+    ]
+  },
+  {
+    "test_id": 14,
+    "question": "What are the applications of deep learning?",
+    "category": "enumeration",
+    "difficulty": "easy",
+    "generated_answer": "Deep learning has various applications, including recognizing handwritten digits with high precision, image recognition, natural language processing tasks such as automatic translation and sentiment analysis, generating art using deep learning, predicting future events in time series data like stock prices, and creating music compositions. Deep learning techniques have shown remarkable achievements in different fields of machine learning, such as image recognition and game playing. (Source: Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "Deep learning applications include computer vision, natural language processing, speech recognition, autonomous vehicles, and medical diagnosis.",
+    "quality_scores": {
+      "accuracy": 9,
+      "completeness": 8,
+      "relevance": 9,
+      "clarity": 9,
+      "overall": 8.75
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 2,
+      "correct_count": 0
+    },
+    "latency": 2.2561323642730713,
+    "tokens_used": 3487,
+    "cost": 0.0052305,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf2.pdf",
+      "pdf3.pdf"
+    ]
+  },
+  {
+    "test_id": 15,
+    "question": "What is the difference between AI and machine learning?",
+    "category": "comparison",
+    "difficulty": "easy",
+    "generated_answer": "According to the document \"Hands On Machine Learning with Scikit Learn and TensorFlow.pdf,\" Machine Learning is a subset of Artificial Intelligence (AI). Machine Learning is the science of programming computers to learn from data, while AI encompasses a broader range of concepts and technologies beyond just learning from data.",
+    "expected_answer": "AI is the broader concept of machines performing tasks that require human intelligence, while machine learning is a subset of AI focused on learning from data.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 1.9646155834197998,
+    "tokens_used": 3325,
+    "cost": 0.0049875,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf"
+    ]
+  },
+  {
+    "test_id": 16,
+    "question": "What is feature engineering?",
+    "category": "definition",
+    "difficulty": "medium",
+    "generated_answer": "Feature engineering is the process of selecting, combining, or creating new features from existing data attributes to improve the performance of machine learning models. It involves tasks such as feature selection, feature extraction, and creating new features by gathering additional data. Feature engineering is crucial for building effective machine learning systems by providing relevant and meaningful input features for training models (Hands On Machine Learning with Scikit Learn and TensorFlow.pdf).",
+    "expected_answer": "Feature engineering is the process of selecting, creating, and transforming input variables to improve model performance.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 2.049628734588623,
+    "tokens_used": 3853,
+    "cost": 0.005779500000000001,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf"
+    ]
+  },
+  {
+    "test_id": 17,
+    "question": "What is a recurrent neural network?",
+    "category": "definition",
+    "difficulty": "medium",
+    "generated_answer": "A recurrent neural network (RNN) is a type of neural network that has connections pointing backward, allowing information to persist over time steps. It can process sequences of inputs and produce sequences of outputs, making it suitable for tasks like time series prediction and natural language processing. RNNs can handle input sequences of varying lengths and are capable of learning and predicting patterns in sequential data. (Source: Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "A recurrent neural network (RNN) is a type of neural network designed for sequential data, where connections between nodes form directed cycles to maintain memory of previous inputs.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 1,
+      "correct_count": 0
+    },
+    "latency": 2.583451271057129,
+    "tokens_used": 3709,
+    "cost": 0.005563500000000001,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf3.pdf"
+    ]
+  },
+  {
+    "test_id": 18,
+    "question": "What is cross-validation?",
+    "category": "definition",
+    "difficulty": "medium",
+    "generated_answer": "Cross-validation is a technique used to evaluate the performance of a machine learning model by splitting the training set into multiple subsets (folds), training the model on some folds, and testing it on others. This process helps in estimating the model's performance and generalization ability. The provided context explains how to implement cross-validation using the StratifiedKFold class in Scikit-Learn and how it can be used to evaluate classifiers. (Source: Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "Cross-validation is a technique for assessing model performance by splitting data into multiple folds, training on some and validating on others to reduce overfitting.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 2,
+      "correct_count": 0
+    },
+    "latency": 3.0899603366851807,
+    "tokens_used": 4223,
+    "cost": 0.0063345,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf",
+      "pdf2.pdf"
+    ]
+  },
+  {
+    "test_id": 19,
+    "question": "What is transfer learning?",
+    "category": "definition",
+    "difficulty": "medium",
+    "generated_answer": "Transfer learning is the process of reusing parts of an existing neural network that accomplishes a similar task to the one being tackled, rather than training a new network from scratch. This approach can speed up training considerably and require less training data. It involves reusing lower layers of a pre-existing network and fine-tuning it for the new task. The concept is discussed in \"Hands On Machine Learning with Scikit Learn and TensorFlow.pdf.\"",
+    "expected_answer": "Transfer learning is a technique where a model trained on one task is reused as a starting point for a different but related task.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 2,
+      "correct_count": 0
+    },
+    "latency": 2.6995794773101807,
+    "tokens_used": 3700,
+    "cost": 0.00555,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf2.pdf",
+      "pdf3.pdf"
+    ]
+  },
+  {
+    "test_id": 20,
+    "question": "What is the bias-variance tradeoff?",
+    "category": "explanation",
+    "difficulty": "hard",
+    "generated_answer": "The bias-variance tradeoff refers to an important theoretical concept in statistics and machine learning that states a model's generalization error can be expressed as the sum of three different errors: bias, variance, and irreducible error. Bias is due to wrong assumptions, variance is due to a model's sensitivity to variations in the training data, and irreducible error is due to the noisiness of the data itself. Increasing a model's complexity typically increases its variance and reduces its bias, while reducing complexity increases bias and reduces variance. Regularization techniques like Ridge Regression, Lasso Regression, and Elastic Net can help address the bias-variance tradeoff by constraining model complexity. (Source: Hands On Machine Learning with Scikit Learn and TensorFlow.pdf)",
+    "expected_answer": "The bias-variance tradeoff describes the balance between a model's ability to minimize bias (underfitting) and variance (overfitting) to achieve optimal generalization.",
+    "quality_scores": {
+      "accuracy": 10,
+      "completeness": 10,
+      "relevance": 10,
+      "clarity": 10,
+      "overall": 10.0
+    },
+    "retrieval_scores": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "retrieved_count": 1,
+      "expected_count": 2,
+      "correct_count": 0
+    },
+    "latency": 3.3014254570007324,
+    "tokens_used": 3610,
+    "cost": 0.005415,
+    "retrieved_sources": [
+      "Hands On Machine Learning with Scikit Learn and TensorFlow.pdf"
+    ],
+    "expected_sources": [
+      "pdf1.pdf",
+      "pdf2.pdf"
+    ]
+  }
+]
