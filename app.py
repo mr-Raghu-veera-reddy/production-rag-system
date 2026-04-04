@@ -9,6 +9,18 @@ from src.ingestion_pipeline import IngestionPipeline
 import os
 
 
+@st.cache_resource
+def load_rag_system(model, top_k, temperature, use_advanced):
+    """Cache RAG system initialization"""
+    return RAGSystem(
+        model=model,
+        top_k=top_k,
+        temperature=temperature,
+        use_advanced_retrieval=use_advanced
+    )
+
+
+
 # Get API key from secrets or environment
 try:
     # Try Streamlit secrets first (for cloud deployment)
@@ -78,21 +90,31 @@ with st.sidebar:
     if uploaded_files:
         if st.button("📤 Process Documents", type="primary"):
             with st.spinner("Processing documents..."):
-                # Save uploaded files
+                import tempfile
+                import shutil
+                
+                # 1. Create a secure temporary directory
+                temp_dir = tempfile.mkdtemp()
+                
+                # 2. Save uploaded files to the temp directory
                 for file in uploaded_files:
-                    save_path = os.path.join("./data", file.name)
-                    with open(save_path, "wb") as f:
+                    file_path = os.path.join(temp_dir, file.name)
+                    with open(file_path, "wb") as f:
                         f.write(file.getbuffer())
                 
-                # Run ingestion
+                # 3. Run ingestion from the temp directory
                 pipeline = IngestionPipeline()
-                pipeline.ingest_directory("./data", clear_existing=False)
+                pipeline.ingest_directory(temp_dir, clear_existing=False)
                 
-                # Reinitialize RAG system
+                # 4. Clean up the temp folder so your cloud storage doesn't fill up!
+                shutil.rmtree(temp_dir)
+                
+                # 5. Reinitialize RAG system
                 st.session_state.rag_system = RAGSystem()
                 
                 st.success(f"✅ Processed {len(uploaded_files)} documents!")
                 st.rerun()
+    
     
     st.markdown("---")
     
@@ -210,9 +232,11 @@ if question := st.chat_input("Ask a question about your documents..."):
     
     # Get answer
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            result = st.session_state.rag_system.query(question)
-            
+        try:
+            # Added the upgraded spinner here
+            with st.spinner("🤔 Thinking..."):
+                result = st.session_state.rag_system.query(question)
+                
             # Display answer
             st.markdown(result['answer'])
             
@@ -230,18 +254,26 @@ if question := st.chat_input("Ask a question about your documents..."):
                     st.metric("Tokens Used", result['tokens_used'])
                 with col3:
                     st.metric("Cost", f"${result['cost']:.4f}")
-    
-    # Add assistant message to history
-    st.session_state.chat_history.append({
-        "role": "assistant",
-        "content": result['answer'],
-        "sources": result['sources'],
-        "metadata": {
-            "chunks": result['chunks_used'],
-            "tokens": result['tokens_used'],
-            "cost": result['cost']
-        }
-    })
+                    
+            # We moved the history and cost updates INSIDE the try block.
+            # This way, if an error happens, it won't save a broken message to your chat history!
+            st.session_state.chat_history.append({
+                "role": "assistant",
+                "content": result['answer'],
+                "sources": result['sources'],
+                "metadata": {
+                    "chunks": result['chunks_used'],
+                    "tokens": result['tokens_used'],
+                    "cost": result['cost']
+                }
+            })
+            st.session_state.total_cost += result['cost']
+            
+        # Added the error handling here
+        except Exception as e:
+            st.error(f"❌ Error: {str(e)}")
+            st.info("💡 Try rephrasing your question or check your API key.")
+            
     
     # Update total cost
     st.session_state.total_cost += result['cost']
