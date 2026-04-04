@@ -275,8 +275,6 @@ if question := st.chat_input("Ask a question about your documents..."):
             st.info("💡 Try rephrasing your question or check your API key.")
             
     
-    # Update total cost
-    st.session_state.total_cost += result['cost']
 
 # Footer
 st.markdown("---")
