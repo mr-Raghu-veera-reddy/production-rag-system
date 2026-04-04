@@ -169,15 +169,26 @@ with st.sidebar:
         mode = "Advanced" if use_advanced else "Basic"
         st.info(f"**Current Mode:** {mode}")
     
-    # Statistics
-    st.header("📊 Statistics")
-    
-    if st.button("📈 Show Stats"):
-     st.session_state.rag_system.show_stats()
-    
-    st.metric("Total Queries", len(st.session_state.chat_history))
-    st.metric("Total Cost", f"${st.session_state.total_cost:.4f}")
-    
+    # System Metrics
+    st.header("📊 System Metrics")
+    if 'rag_system' in st.session_state:
+        # Get stats from monitoring
+        try:
+            stats = st.session_state.rag_system.monitor.get_stats()
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                st.metric("Total Queries", stats.get('total_queries', 0))
+                st.metric("Success Rate", f"{stats.get('success_rate', 0):.1%}")
+            with col2:
+                st.metric("Avg Latency", f"{stats.get('avg_latency', 0):.2f}s")
+                st.metric("Avg Cost", f"${stats.get('avg_cost_per_query', 0):.4f}")
+        except:
+            # Fallback just in case the monitor isn't tracking yet
+            st.metric("Total Queries", len(st.session_state.chat_history))
+            st.metric("Total Cost", f"${st.session_state.total_cost:.4f}")
+
+    # Keep the clear chat button, it's super useful!
     if st.button("🗑️ Clear Chat"):
         st.session_state.chat_history = []
         st.session_state.total_cost = 0.0
@@ -192,9 +203,36 @@ with st.sidebar:
     **Status:** 🟢 Online
     """)
 
-# Main chat interface
-st.title("💬 Ask Questions About Your Documents")
-st.markdown("*Powered by GPT-3.5 and semantic search*")
+# Main chat interface / Landing Page
+st.title("🤖 Production RAG System")
+st.markdown("""
+**An intelligent document Q&A system powered by:**
+- 📄 PDF document processing
+- 🧠 OpenAI GPT-4 & embeddings
+- 🔍 Semantic search with ChromaDB
+- 🎯 Query rewriting & re-ranking
+- ⚡ Real-time answer generation with citations
+
+**Try it:** Ask a question about your documents!
+""")
+st.markdown("---")
+
+# Example Questions (Only show if chat history is empty!)
+if len(st.session_state.chat_history) == 0:
+    st.subheader("💡 Example Questions")
+    example_questions = [
+        "What is the main topic of the documents?",
+        "Can you summarize the key findings?",
+        "What are the conclusions?",
+        "What is machine learning?"
+    ]
+    
+    cols = st.columns(2)
+    for i, ex_q in enumerate(example_questions):
+        col_idx = i % 2
+        if cols[col_idx].button(ex_q, key=f"example_{i}"):
+            st.session_state.example_clicked = ex_q
+            st.rerun()
 
 # Display chat history
 for message in st.session_state.chat_history:
@@ -219,7 +257,14 @@ for message in st.session_state.chat_history:
                         st.metric("Cost", f"${message['metadata']['cost']:.4f}")
 
 # Chat input
-if question := st.chat_input("Ask a question about your documents..."):
+question = st.chat_input("Ask a question about your documents...")
+
+# Auto-fill and trigger if an example question was clicked
+if 'example_clicked' in st.session_state:
+    question = st.session_state.example_clicked
+    del st.session_state.example_clicked
+
+if question:
     # Add user message
     st.session_state.chat_history.append({
         "role": "user",
@@ -278,7 +323,9 @@ if question := st.chat_input("Ask a question about your documents..."):
 
 # Footer
 st.markdown("---")
-st.markdown(
-    "*Built with ❤️ using Streamlit, OpenAI, and ChromaDB*",
-    unsafe_allow_html=True
-)
+st.markdown("""
+<div style='text-align: center; color: #666; padding-bottom: 20px;'>
+    Built with ❤️ using Streamlit, OpenAI, and ChromaDB<br>
+    <a href='https://github.com/mr-Raghu-veera-reddy/production-rag-system' target='_blank'>View on GitHub</a>
+</div>
+""", unsafe_allow_html=True)
