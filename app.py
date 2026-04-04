@@ -8,6 +8,23 @@ from src.rag_system import RAGSystem
 from src.ingestion_pipeline import IngestionPipeline
 import os
 
+
+# Get API key from secrets or environment
+try:
+    # Try Streamlit secrets first (for cloud deployment)
+    if hasattr(st, 'secrets') and 'OPENAI_API_KEY' in st.secrets:
+        OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
+        os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
+    # Fall back to .env file (for local development)
+    elif os.getenv('OPENAI_API_KEY'):
+        OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    else:
+        st.error("⚠️ OpenAI API key not found! Please configure it in Streamlit secrets.")
+        st.stop()
+except Exception as e:
+    st.error(f"⚠️ Error loading API key: {e}")
+    st.stop()
+
 # Page configuration
 st.set_page_config(
     page_title="Production RAG System",
@@ -143,6 +160,15 @@ with st.sidebar:
         st.session_state.chat_history = []
         st.session_state.total_cost = 0.0
         st.rerun()
+    
+    
+    st.markdown("---")
+    st.markdown("### 📊 System Info")
+    st.info(f"""
+    **Mode:** {'Cloud' if 'STREAMLIT_SHARING' in os.environ else 'Local'}  
+    **Version:** 1.0  
+    **Status:** 🟢 Online
+    """)
 
 # Main chat interface
 st.title("💬 Ask Questions About Your Documents")

@@ -3,8 +3,8 @@ Retriever Module
 Retrieve relevant chunks for a given query
 """
 
-from embeddings import EmbeddingGenerator
-from vector_store import VectorStore
+from src.embeddings import EmbeddingGenerator
+from src.vector_store import VectorStore
 from typing import List, Dict
 
 class Retriever:
