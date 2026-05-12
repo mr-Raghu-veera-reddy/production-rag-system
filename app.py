@@ -205,6 +205,7 @@ with st.sidebar:
 
 # Main chat interface / Landing Page
 st.title("🤖 Production RAG System")
+st.markdown("**Built by RVR**")
 st.markdown("""
 **An intelligent document Q&A system powered by:**
 - 📄 PDF document processing
@@ -320,12 +321,14 @@ if question:
             st.info("💡 Try rephrasing your question or check your API key.")
             
     
-
-# Footer
+# Footer 
 st.markdown("---")
 st.markdown("""
-<div style='text-align: center; color: #666; padding-bottom: 20px;'>
-    Built with ❤️ using Streamlit, OpenAI, and ChromaDB<br>
-    <a href='https://github.com/mr-Raghu-veera-reddy/production-rag-system' target='_blank'>View on GitHub</a>
+<div style='text-align: center; padding: 20px;'>
+    <p style='color: #666;'>
+        <strong>Built by mr-Raghu-veera-reddy</strong><br>
+        AI/ML Engineer | Production RAG System<br>
+        <a href='https://github.com/mr-Raghu-veera-reddy/production-rag-system' target='_blank'>View on GitHub</a>
+    </p>
 </div>
 """, unsafe_allow_html=True)
