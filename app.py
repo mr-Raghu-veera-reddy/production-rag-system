@@ -104,7 +104,7 @@ with st.sidebar:
                 
                 # 3. Run ingestion from the temp directory
                 pipeline = IngestionPipeline()
-                pipeline.ingest_directory(temp_dir, clear_existing=False)
+                pipeline.ingest_directory(temp_dir, clear_existing=True)
                 
                 # 4. Clean up the temp folder so your cloud storage doesn't fill up!
                 shutil.rmtree(temp_dir)
