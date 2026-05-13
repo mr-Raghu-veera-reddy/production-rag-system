@@ -112,11 +112,17 @@ with st.sidebar:
                 # 4. Clean up the temp folder so your cloud storage doesn't fill up!
                 shutil.rmtree(temp_dir)
                 
+                del pipeline
+                
                 import time
-                time.sleep(1)
+                time.sleep(2)
                 
                 # 5. Reinitialize RAG system
-                st.session_state.rag_system = RAGSystem()
+                st.session_state.rag_system = RAGSystem(
+                    model="gpt-3.5-turbo",
+                    top_k=5,
+                    temperature=0.3
+                )
                 
                 st.success(f"✅ Processed {len(uploaded_files)} documents!")
                 st.rerun()

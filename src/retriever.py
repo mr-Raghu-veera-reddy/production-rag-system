@@ -4,7 +4,6 @@ Retrieve relevant chunks for a given query
 """
 
 import chromadb
-import chromadb
 
 from src.embeddings import EmbeddingGenerator
 from src.vector_store import VectorStore

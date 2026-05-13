@@ -104,7 +104,7 @@ ANSWER:"""
                     }
                 ],
                 temperature=self.temperature,
-                max_tokens=800  # Limit response length
+                max_tokens=1000 
             )
             
             # Extract answer
