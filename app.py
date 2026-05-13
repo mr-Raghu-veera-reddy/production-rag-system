@@ -103,11 +103,17 @@ with st.sidebar:
                         f.write(file.getbuffer())
                 
                 # 3. Run ingestion from the temp directory
+                if 'rag_system' in st.session_state:
+                    del st.session_state['rag_system']
+                
                 pipeline = IngestionPipeline()
                 pipeline.ingest_directory(temp_dir, clear_existing=True)
                 
                 # 4. Clean up the temp folder so your cloud storage doesn't fill up!
                 shutil.rmtree(temp_dir)
+                
+                import time
+                time.sleep(1)
                 
                 # 5. Reinitialize RAG system
                 st.session_state.rag_system = RAGSystem()

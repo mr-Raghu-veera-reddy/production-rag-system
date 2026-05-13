@@ -42,7 +42,7 @@ class IngestionPipeline:
         
         print("\n✅ All components initialized")
     
-    def ingest_directory(self, directory_path: str, clear_existing: bool = False):
+    def ingest_directory(self, directory_path: str, clear_existing: bool = True):
         """
         Ingest all PDFs from a directory
         

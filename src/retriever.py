@@ -3,6 +3,9 @@ Retriever Module
 Retrieve relevant chunks for a given query
 """
 
+import chromadb
+import chromadb
+
 from src.embeddings import EmbeddingGenerator
 from src.vector_store import VectorStore
 from typing import List, Dict
@@ -25,6 +28,13 @@ class Retriever:
         self.embedder = EmbeddingGenerator()
         self.vector_store = VectorStore()
         self.top_k = top_k
+        # Force fresh read from disk
+        self.vector_store.client = chromadb.PersistentClient(
+             path=self.vector_store.persist_directory
+            )
+        self.vector_store.collection = self.vector_store.client.get_or_create_collection(
+            name=self.vector_store.collection_name
+            )
         
         # Check if vector store has data
         count = self.vector_store.collection.count()
