@@ -82,7 +82,7 @@ ANSWER:"""
         
         # Combine chunks into context
         context = "\n\n".join([
-            f"[Source: {chunk['source']}]\n{chunk['text']}"
+            f"[Source: {chunk['source']}]\n{chunk['text'][:1200]}"
             for chunk in chunks
         ])
         
@@ -104,7 +104,7 @@ ANSWER:"""
                     }
                 ],
                 temperature=self.temperature,
-                max_tokens=500  # Limit response length
+                max_tokens=800  # Limit response length
             )
             
             # Extract answer

@@ -139,7 +139,7 @@ with st.sidebar:
         "Chunks to retrieve",
         min_value=1,
         max_value=10,
-        value=5,
+        value=3,
         help="Number of document chunks to use for context"
     )
     
